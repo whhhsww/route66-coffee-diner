@@ -50,8 +50,26 @@
   }), { rootMargin: '-45% 0px -50% 0px' });
   ['menu', 'about', 'reviews', 'qr', 'contacts'].forEach(id => navObs.observe(document.getElementById(id)));
 
+  // закрити мобільне меню тапом поза ним
+  document.addEventListener('click', e => {
+    if (nav.classList.contains('open') && !e.target.closest('#nav, #burger')) { nav.classList.remove('open'); burger.setAttribute('aria-expanded', 'false'); }
+  });
+
+  // кнопка «Меню» на телефоні: зʼявляється, коли гість прокрутив повз початок меню
+  const toMenu = $('#toMenu');
+  const onScroll = () => {
+    const m = document.getElementById('menu');
+    const past = window.scrollY > m.offsetTop + 600;
+    const nearEnd = window.scrollY + window.innerHeight > document.getElementById('contacts').offsetTop + 40;
+    toMenu.classList.toggle('show', past && !nearEnd && window.innerWidth <= 820);
+  };
+  window.addEventListener('scroll', onScroll, { passive: true });
+  toMenu.addEventListener('click', e => { e.preventDefault(); document.getElementById('menu').scrollIntoView({ behavior: 'smooth' }); });
+
   /* ---------- 3D-відео: крутимо до фінального титру ---------- */
   const video = $('#heroVideo');
+  // режим економії трафіку — відео не вантажимо
+  if (navigator.connection && navigator.connection.saveData) { video.removeAttribute('autoplay'); video.preload = 'none'; video.removeAttribute('src'); video.load(); }
   video.addEventListener('timeupdate', () => { if (video.currentTime > 9.4) video.currentTime = 0; });
   video.addEventListener('ended', () => { video.currentTime = 0; video.play().catch(() => {}); });
   video.play().catch(() => {});
@@ -65,7 +83,8 @@
     $('#aboutText').textContent = s.about || '';
     $('#heroHours').textContent = s.hours ? '🕗 ' + s.hours : '';
     const ann = $('#announce'); ann.textContent = s.announcement || ''; ann.hidden = !s.announcement;
-    const addr = $('#cAddress'); addr.textContent = s.address || '—';
+    $('#cAddressRow').hidden = !s.address;
+    const addr = $('#cAddress'); addr.textContent = s.address || '';
     if (s.mapUrl) addr.href = s.mapUrl; else if (s.address) addr.href = 'https://www.google.com/maps/search/' + encodeURIComponent(s.address); else addr.removeAttribute('href');
     const ph = $('#cPhone'); ph.textContent = s.phone || ''; ph.href = 'tel:' + String(s.phone || '').replace(/[^\d+]/g, ''); $('#cPhoneRow').hidden = !s.phone;
     $('#cHours').textContent = s.hours || '';

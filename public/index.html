@@ -156,7 +156,7 @@
         <p class="qr-link">Посилання: <a id="qrLink" href="#" target="_blank" rel="noopener"></a></p>
         <div class="qr-actions">
           <button class="btn btn-light" id="qrDownload">Завантажити PNG</button>
-          <button class="btn btn-ghost" id="qrPrint">Друкувати табличку</button>
+          <button class="btn btn-ghost" id="qrPrint">Друкувати<span class="d-only"> табличку</span></button>
           <button class="btn btn-ghost" id="qrShare">Поділитися</button>
         </div>
       </div>
@@ -178,7 +178,7 @@
       <div>
         <h3>Контакти</h3>
         <ul class="contact-list">
-          <li><span>📍</span><a id="cAddress" target="_blank" rel="noopener"></a></li>
+          <li id="cAddressRow"><span>📍</span><a id="cAddress" target="_blank" rel="noopener"></a></li>
           <li id="cPhoneRow"><span>📞</span><a id="cPhone"></a></li>
           <li><span>🕗</span><span id="cHours"></span></li>
         </ul>
@@ -207,9 +207,9 @@
   <div class="edit-bar" id="editBar" hidden>
     <div class="eb-info"><b>✏️ Режим редагування</b><span id="ebStatus">Натисніть на будь-яку назву чи ціну, щоб змінити її</span></div>
     <div class="eb-actions">
-      <button class="eb-btn" id="ebSettings" type="button">⚙ Контакти і тексти</button>
+      <button class="eb-btn" id="ebSettings" type="button">⚙ Контакти<span class="d-only"> і тексти</span></button>
       <button class="eb-btn" id="ebPassword" type="button">🔑 Пароль</button>
-      <button class="eb-btn eb-save" id="ebSave" type="button" disabled>Зберегти зміни</button>
+      <button class="eb-btn eb-save" id="ebSave" type="button" disabled>Зберегти<span class="d-only"> зміни</span></button>
       <button class="eb-btn" id="ebExit" type="button">Вийти</button>
     </div>
   </div>
@@ -247,6 +247,7 @@
     </form>
   </div>
 
+  <a class="to-menu" id="toMenu" href="#menu" aria-label="До меню">☰ Меню</a>
   <div class="toast" id="toast" role="status"></div>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcode-generator/1.4.4/qrcode.min.js"></script>
