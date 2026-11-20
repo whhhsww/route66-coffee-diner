@@ -10,6 +10,24 @@ const { execSync } = require('child_process');
 const ROOT = __dirname;
 const OUT = path.join(ROOT, '_site');
 const SKIP = ['api.php', '.htaccess', 'admin.html', 'css/admin.css', 'js/admin.js'];
+const PUBLISH = process.argv.includes('--publish');
+
+// Власник міняє меню прямо на сайті — ці зміни комітяться в гілку gh-pages.
+// Перед публікацією забираємо їх, якщо вони новіші за локальні файли, щоб не затерти.
+if (PUBLISH) {
+  const git = cmd => execSync(cmd, { cwd: ROOT, stdio: ['ignore', 'pipe', 'ignore'] }).toString().trim();
+  let fetched = false;
+  try { git('git fetch -q origin gh-pages'); fetched = true; } catch (e) { console.log('Гілки gh-pages ще немає — публікуємо вперше.'); }
+  if (fetched) for (const f of ['menu.json', 'settings.json']) {
+    const remoteTime = Number(git(`git log -1 --format=%ct origin/gh-pages -- data/${f}`) || 0) * 1000;
+    const local = path.join(ROOT, 'data', f);
+    const localTime = fs.existsSync(local) ? fs.statSync(local).mtimeMs : 0;
+    if (remoteTime > localTime) {
+      fs.writeFileSync(local, git(`git show origin/gh-pages:data/${f}`) + '\n');
+      console.log(`data/${f}: взято новішу версію з сайту (зміни власника).`);
+    }
+  }
+}
 
 fs.rmSync(OUT, { recursive: true, force: true });
 fs.cpSync(path.join(ROOT, 'public'), OUT, { recursive: true });
@@ -19,7 +37,7 @@ for (const f of ['menu.json', 'settings.json']) fs.copyFileSync(path.join(ROOT, 
 fs.writeFileSync(path.join(OUT, '.nojekyll'), '');
 console.log('Зібрано у _site/');
 
-if (process.argv.includes('--publish')) {
+if (PUBLISH) {
   const run = cmd => execSync(cmd, { cwd: OUT, stdio: 'inherit' });
   const remote = execSync('git remote get-url origin', { cwd: ROOT }).toString().trim();
   const name = execSync('git config user.name', { cwd: ROOT }).toString().trim();

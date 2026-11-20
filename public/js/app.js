@@ -38,6 +38,38 @@
     if (!r.ok) throw new Error(d.error || 'Помилка ' + r.status);
     return d;
   }
+  /* ---------- GitHub-режим: сайт на GitHub Pages, зміни зберігаються комітами ---------- */
+  const lsGet = k => { try { return localStorage.getItem(k); } catch (e) { return null; } };
+  const lsSet = (k, v) => { try { if (v == null) localStorage.removeItem(k); else localStorage.setItem(k, v); } catch (e) {} };
+  const GH_BRANCH = 'gh-pages';
+  let ghToken = lsGet('r66gh') || store.get('r66gh');
+  function ghRepo() {
+    const m = location.hostname.match(/^([\w-]+)\.github\.io$/i);
+    const first = location.pathname.split('/').filter(Boolean)[0];
+    if (m && first) return m[1] + '/' + first;
+    return settings.githubRepo || 'whhhsww/route66-coffee-diner';
+  }
+  async function gh(path, opt = {}) {
+    const headers = { Accept: 'application/vnd.github+json', Authorization: 'Bearer ' + ghToken };
+    if (opt.body) headers['Content-Type'] = 'application/json';
+    const r = await fetch('https://api.github.com/repos/' + ghRepo() + path, { ...opt, headers, cache: 'no-store' });
+    const d = await r.json().catch(() => ({}));
+    if (r.status === 401) throw new Error('Ключ GitHub недійсний або прострочений');
+    if (r.status === 403 || r.status === 404) throw new Error('Ключ не має доступу до ' + ghRepo() + ' (потрібно Contents: Read and write)');
+    if (r.status === 409) throw new Error('Файл щойно змінився — оновіть сторінку і спробуйте ще раз');
+    if (!r.ok) throw new Error(d.message || 'Помилка GitHub ' + r.status);
+    return d;
+  }
+  const b64enc = str => btoa(unescape(encodeURIComponent(str)));
+  const b64dec = str => decodeURIComponent(escape(atob(str.replace(/\s/g, ''))));
+  async function ghRead(f) { const d = await gh('/contents/' + f + '?ref=' + GH_BRANCH); return JSON.parse(b64dec(d.content)); }
+  async function ghWrite(f, value, message) {
+    const { sha } = await gh('/contents/' + f + '?ref=' + GH_BRANCH);
+    await gh('/contents/' + f, { method: 'PUT', body: JSON.stringify({ message, content: b64enc(JSON.stringify(value, null, 2) + '\n'), sha, branch: GH_BRANCH }) });
+  }
+  const saveFile = (path, f, value, msg) => STATIC ? ghWrite(f, value, msg) : api(path, 'PUT', value);
+  const savedText = () => STATIC ? 'Збережено ✓ Сайт оновиться приблизно за 1 хвилину' : 'Збережено ✓ Гості вже бачать зміни';
+
   let toastT;
   function toast(msg, bad) { const t = $('#toast'); t.textContent = msg; t.className = 'toast show' + (bad ? ' bad' : ''); clearTimeout(toastT); toastT = setTimeout(() => (t.className = 'toast'), 3000); }
 
@@ -66,13 +98,6 @@
   window.addEventListener('scroll', onScroll, { passive: true });
   toMenu.addEventListener('click', e => { e.preventDefault(); document.getElementById('menu').scrollIntoView({ behavior: 'smooth' }); });
 
-  /* ---------- 3D-відео: крутимо до фінального титру ---------- */
-  const video = $('#heroVideo');
-  // режим економії трафіку — відео не вантажимо
-  if (navigator.connection && navigator.connection.saveData) { video.removeAttribute('autoplay'); video.preload = 'none'; video.removeAttribute('src'); video.load(); }
-  video.addEventListener('timeupdate', () => { if (video.currentTime > 9.4) video.currentTime = 0; });
-  video.addEventListener('ended', () => { video.currentTime = 0; video.play().catch(() => {}); });
-  video.play().catch(() => {});
 
   /* ---------- налаштування ---------- */
   function link(v, base) { v = String(v).trim(); return /^https?:\/\//i.test(v) ? v : base + v.replace(/^@/, ''); }
@@ -153,6 +178,7 @@
   }
 
   function renderMenu() {
+    document.dispatchEvent(new CustomEvent('r66:menu', { detail: menu }));
     const q = editing ? '' : $('#menuSearch').value.trim().toLowerCase();
     let total = 0;
     const html = (menu.categories || []).map((c, ci) => {
@@ -285,7 +311,7 @@
     if (empty.length) return toast(`Є позиція без назви в категорії «${empty[0]}»`, true);
     menu.categories.forEach(c => { if (!c.name.trim()) c.name = 'Без назви'; if (!c.id) c.id = 'cat' + Math.random().toString(36).slice(2, 8); });
     $('#ebSave').disabled = true;
-    try { await api('menu', 'PUT', menu); setDirty(false); toast('Збережено ✓ Гості вже бачать зміни'); }
+    try { await saveFile('menu', 'data/menu.json', menu, 'Меню: зміни через сайт'); setDirty(false); toast(savedText()); }
     catch (err) { $('#ebSave').disabled = false; toast(err.message, true); }
   });
 
@@ -301,26 +327,39 @@
     e.preventDefault(); $('#loginErr').textContent = '';
     const btn = e.target.querySelector('button[type=submit]'); btn.disabled = true;
     try {
+      if (STATIC) {
+        const t = $('#ghToken').value.trim();
+        if (!t) throw new Error('Вставте ключ GitHub');
+        ghToken = t; await ghRead('data/menu.json'); // перевірка доступу
+        if ($('#ghRemember').checked) lsSet('r66gh', t); else store.set('r66gh', t);
+        $('#ghToken').value = ''; closeModal($('#loginModal'));
+        await enterEdit(); btn.disabled = false; return;
+      }
+      if (!$('#ownerPw').value) throw new Error('Введіть пароль');
       const r = await api('login', 'POST', { password: $('#ownerPw').value });
       token = r.token; store.set('r66token', token); store.set('r66default', r.isDefault ? '1' : '');
       $('#ownerPw').value = ''; closeModal($('#loginModal'));
       await enterEdit();
       if (r.isDefault) toast('⚠ Стоїть стандартний пароль — змініть його кнопкою «🔑 Пароль»', true);
-    } catch (err) { $('#loginErr').textContent = err.message; }
+    } catch (err) { if (STATIC) ghToken = null; $('#loginErr').textContent = err.message; }
     btn.disabled = false;
   });
   async function enterEdit() {
     editing = true; document.body.classList.add('editing');
     $('#editBar').hidden = false; $('#editTools').hidden = false; $('#menuSearch').closest('.menu-tools').hidden = true;
-    try { [menu, reviews] = await Promise.all([api('menu'), api('reviews?all=1')]); } catch (err) { toast(err.message, true); }
+    try {
+      if (STATIC) { [menu, settings] = await Promise.all([ghRead('data/menu.json'), ghRead('data/settings.json')]); reviews = []; applySettings(); }
+      else [menu, reviews] = await Promise.all([api('menu'), api('reviews?all=1')]);
+    } catch (err) { toast(err.message, true); if (STATIC) { exitEdit(); return; } }
     setDirty(false); renderMenu(); renderReviews();
     document.getElementById('menu').scrollIntoView({ behavior: 'smooth' });
   }
   async function exitEdit(silent) {
     editing = false; token = null; store.set('r66token', null);
+    if (STATIC) { ghToken = null; lsSet('r66gh', null); store.set('r66gh', null); }
     document.body.classList.remove('editing');
     $('#editBar').hidden = true; $('#editTools').hidden = true; $('#menuSearch').closest('.menu-tools').hidden = false;
-    try { [menu, reviews] = await Promise.all([api('menu'), api('reviews')]); } catch (e) {}
+    try { if (STATIC) menu = await load('menu'); else [menu, reviews] = await Promise.all([api('menu'), api('reviews')]); } catch (e) {}
     dirty = false; renderMenu(); renderReviews();
     if (silent === true) openModal('#loginModal');
   }
@@ -341,7 +380,7 @@
     const next = { ...settings };
     [...e.target.elements].forEach(el => { if (!el.name) return; next[el.name] = el.type === 'checkbox' ? el.checked : el.value.trim(); });
     next.siteUrl = (next.siteUrl || '').replace(/\/+$/, '');
-    try { await api('settings', 'PUT', next); settings = next; applySettings(); closeModal($('#settingsModal')); toast('Контакти і тексти збережено ✓'); }
+    try { await saveFile('settings', 'data/settings.json', next, 'Налаштування: зміни через сайт'); settings = next; applySettings(); closeModal($('#settingsModal')); toast(savedText()); }
     catch (err) { toast(err.message, true); }
   });
   $('#ebPassword').addEventListener('click', () => openModal('#pwModal'));
@@ -456,8 +495,9 @@
     const [s, r] = await Promise.allSettled([load('settings'), load('reviews')]);
     if (STATIC) {
       // без сервера відгуки не зберегти — ховаємо все, що з ними повʼязано
-      ['#reviews', '#ownerLogin', '#heroRating'].forEach(s => ($(s).hidden = true));
+      ['#reviews', '#heroRating', '#ebPassword', '#ownerPw', '#loginHint'].forEach(s => ($(s).hidden = true));
       $$('a[href="#reviews"], .qchip[data-target="#reviews"]').forEach(a => (a.hidden = true));
+      $('#ghLogin').hidden = false;
       token = null;
     }
     if (s.status === 'fulfilled') settings = s.value;
@@ -465,7 +505,12 @@
     else $('#menuList').innerHTML = '<p class="loading">Не вдалося завантажити меню. Оновіть сторінку.</p>';
     if (r.status === 'fulfilled') reviews = r.value;
     applySettings(); renderMenu(); renderReviews();
-    if (STATIC) { if (location.hash && location.hash.length > 1 && !/admin|owner/.test(location.hash)) { const t = document.querySelector(location.hash); if (t) setTimeout(() => t.scrollIntoView(), 50); } }
+    if (STATIC) {
+      $('#ghRepoName').textContent = ghRepo().split('/')[1];
+      if (/^#(admin|owner)$/.test(location.hash)) { history.replaceState(null, '', location.pathname); if (ghToken) await enterEdit().catch(() => {}); else openModal('#loginModal'); }
+      else if (ghToken) await enterEdit().catch(() => {});
+      else if (location.hash.length > 1) { const t = document.querySelector(location.hash); if (t) setTimeout(() => t.scrollIntoView(), 50); }
+    }
     else if (location.hash === '#admin' || location.hash === '#owner') {
       history.replaceState(null, '', location.pathname);
       if (token) await enterEdit().catch(() => {}); else openModal('#loginModal');

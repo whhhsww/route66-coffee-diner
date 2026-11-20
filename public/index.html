@@ -31,8 +31,13 @@
   </header>
 
   <section class="hero" id="top">
-    <video class="hero-video" id="heroVideo" src="assets/hero.mp4" autoplay muted playsinline preload="auto" aria-hidden="true"></video>
+    <div class="hero-stage" id="heroStage" aria-hidden="true"></div>
     <div class="hero-shade"></div>
+    <a class="now-showing" id="nowShowing" href="#menu" hidden>
+      <span class="ns-k">На екрані</span>
+      <b class="ns-name"></b>
+      <span class="ns-price"></span>
+    </a>
     <div class="hero-inner">
       <div class="hero-badge"><span>★</span> Американський дайнер <span>★</span></div>
       <h1><span class="h-route">Route 66</span><span class="h-script">Coffee Diner</span></h1>
@@ -197,8 +202,24 @@
       <button class="modal-x" type="button" data-close aria-label="Закрити">✕</button>
       <img src="assets/logo.svg" alt="" width="56" height="61">
       <h3>Вхід для власника</h3>
-      <p>Після входу можна змінювати меню, ціни, тексти та відгуки прямо на сайті.</p>
-      <input type="password" id="ownerPw" placeholder="Пароль" autocomplete="current-password" required>
+      <p id="loginHint">Після входу можна змінювати меню, ціни, тексти та відгуки прямо на сайті.</p>
+      <input type="password" id="ownerPw" placeholder="Пароль" autocomplete="current-password">
+      <div class="gh-login" id="ghLogin" hidden>
+        <p>Ця версія сайту зберігає зміни прямо на GitHub. Увійдіть зі своїм ключем доступу GitHub.</p>
+        <input type="password" id="ghToken" placeholder="Ключ GitHub (github_pat_…)" autocomplete="off" spellcheck="false">
+        <label class="gh-remember"><input type="checkbox" id="ghRemember" checked> Запамʼятати на цьому пристрої</label>
+        <details>
+          <summary>Як отримати ключ? (1 раз, 2 хвилини)</summary>
+          <ol>
+            <li>Увійдіть на github.com у свій акаунт.</li>
+            <li>Відкрийте <a href="https://github.com/settings/personal-access-tokens/new" target="_blank" rel="noopener">Settings → Developer settings → Fine-grained tokens → Generate new token</a>.</li>
+            <li>Token name: <b>route66</b>, Expiration: 1 рік.</li>
+            <li>Repository access: <b>Only select repositories</b> → <b id="ghRepoName">route66-coffee-diner</b>.</li>
+            <li>Permissions → Repository → <b>Contents: Read and write</b>.</li>
+            <li>Натисніть <b>Generate token</b>, скопіюйте ключ і вставте сюди.</li>
+          </ol>
+        </details>
+      </div>
       <button class="btn btn-primary" type="submit">Увійти</button>
       <p class="form-msg err" id="loginErr" role="alert"></p>
     </form>
@@ -251,6 +272,8 @@
   <div class="toast" id="toast" role="status"></div>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcode-generator/1.4.4/qrcode.min.js"></script>
+
+  <script src="js/hero-panels.js"></script>
   <script src="js/app.js"></script>
 </body>
 </html>

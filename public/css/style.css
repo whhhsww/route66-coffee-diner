@@ -357,3 +357,51 @@ body.editing { padding-bottom: 110px; }
 }
 @media (max-width: 560px) { .d-only { display: none; } }
 .ask { white-space: nowrap; }
+
+/* вхід через GitHub */
+.gh-login { display: grid; gap: 10px; text-align: left; width: 100%; }
+.gh-login p { text-align: center; }
+.gh-remember { display: flex; gap: 8px; align-items: center; font-size: 14px; color: var(--ink-2); }
+.gh-remember input { width: 18px !important; height: 18px; accent-color: var(--orange); }
+.gh-login details { font-size: 14px; background: var(--cream); border-radius: 12px; padding: 10px 14px; }
+.gh-login summary { cursor: pointer; font-weight: 500; color: var(--orange); }
+.gh-login ol { margin: 10px 0 0; padding-left: 20px; display: grid; gap: 6px; color: var(--ink-2); }
+.gh-login a { color: var(--orange); }
+
+/* =====================  3D-ПАНЕЛІ З ФОТО СТРАВ (як у 3D-відео)  ===================== */
+.hero { background:
+  radial-gradient(ellipse at 50% 35%, rgba(255,190,140,.35) 0%, rgba(255,190,140,0) 55%),
+  linear-gradient(160deg, #4a1d07 0%, #8f3a0a 45%, #b84a0e 70%, #3a1606 100%); }
+.hero-stage { position: absolute; inset: 0; z-index: -2; perspective: 1300px; perspective-origin: 50% 40%; overflow: hidden; }
+.hero-stage::before { /* світлова смуга, як у відео */
+  content: ''; position: absolute; inset: -20%; background: linear-gradient(115deg, transparent 35%, rgba(255,255,255,.10) 48%, transparent 60%); animation: sweep 9s linear infinite; }
+@keyframes sweep { from { transform: translateX(-40%); } to { transform: translateX(40%); } }
+.hp { position: absolute; left: 50%; top: 50%; transform-style: preserve-3d; will-change: transform, opacity; opacity: 0; }
+.hp-main { width: min(78vw, 1050px); aspect-ratio: 2 / 1; margin: calc(min(78vw, 1050px) / -4) 0 0 calc(min(78vw, 1050px) / -2); }
+.hp-back { width: min(52vw, 700px); aspect-ratio: 2 / 1; margin: calc(min(52vw, 700px) / -4) 0 0 calc(min(52vw, 700px) / -2); filter: saturate(.85) brightness(.85); }
+.hp-img { position: absolute; inset: 0; background: center / cover no-repeat; border-radius: 6px; box-shadow: 0 40px 80px rgba(0,0,0,.55), 0 0 0 1px rgba(255,255,255,.25); border-bottom: 6px solid #d9a441; filter: saturate(1.15) contrast(1.05); }
+.hp-img::after { /* легка «скляна» рамка */ content: ''; position: absolute; inset: 0; border-radius: inherit; box-shadow: inset 0 0 0 2px rgba(255,255,255,.18), inset 0 -40px 60px rgba(0,0,0,.25); }
+.hp-glare { position: absolute; inset: 0; border-radius: 6px; overflow: hidden; pointer-events: none; background: linear-gradient(100deg, transparent 30%, rgba(255,255,255,.35) 50%, transparent 70%); transform: translateX(-120%); mix-blend-mode: soft-light; }
+.hero-shade { background:
+  radial-gradient(ellipse at center, rgba(30,10,2,.38) 0%, rgba(30,10,2,.42) 45%, rgba(30,10,2,.78) 100%),
+  linear-gradient(180deg, rgba(184,74,14,.28) 0%, rgba(28,20,16,.0) 50%, rgba(28,20,16,.75) 100%); }
+.now-showing { position: absolute; right: max(16px, calc((100% - 1180px) / 2)); bottom: 28px; z-index: 2; display: flex; align-items: center; gap: 10px; padding: 9px 16px; border-radius: 999px; background: rgba(28,20,16,.6); backdrop-filter: blur(8px); border: 1px solid rgba(255,179,122,.45); color: #fff; text-decoration: none; font-size: 14px; max-width: calc(100% - 32px); }
+.now-showing.in { animation: rise .5s ease-out both; }
+.now-showing:hover { border-color: #ffb37a; }
+.ns-k { font: 400 17px/1 var(--f-script); color: #ffb37a; }
+.ns-name { font: 600 16px/1.1 var(--f-head); text-transform: uppercase; letter-spacing: .05em; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.ns-price { font: 700 16px/1 var(--f-head); color: #ffb37a; white-space: nowrap; }
+@media (max-width: 820px) {
+  .hp-main { width: 112vw; margin: -28vw 0 0 -56vw; }
+  .hp-back { width: 80vw; margin: -20vw 0 0 -40vw; }
+  .hero-stage { perspective: 800px; perspective-origin: 50% 30%; }
+}
+@media (max-width: 560px) {
+  .now-showing { left: 16px; right: 16px; bottom: 16px; justify-content: center; }
+  .hero-scroll { display: none; }
+}
+.item-img { width: 84px; height: 56px; border-radius: 10px; box-shadow: 0 2px 8px rgba(60,25,5,.15); }
+@media (max-width: 820px) {
+  .hp-main { width: 124vw; aspect-ratio: 3 / 2; margin: -41.3vw 0 0 -62vw; }
+  .hp-back { width: 88vw; aspect-ratio: 3 / 2; margin: -29.3vw 0 0 -44vw; }
+}
