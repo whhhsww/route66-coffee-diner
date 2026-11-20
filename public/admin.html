@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="uk">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex">
+  <title>Адмін-панель — Route 66</title>
+  <link rel="icon" href="assets/logo.svg" type="image/svg+xml">
+  <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Oswald:wght@500;600;700&family=Rubik:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/admin.css">
+</head>
+<body>
+  <!-- вхід -->
+  <section class="login" id="loginView">
+    <form class="login-card" id="loginForm">
+      <img src="assets/logo.svg" alt="" width="64" height="70">
+      <h1>Адмін-панель</h1>
+      <p>Route 66 Coffee Diner</p>
+      <input type="password" id="pw" placeholder="Пароль" autocomplete="current-password" required>
+      <button class="btn" type="submit">Увійти</button>
+      <p class="err" id="loginErr" role="alert"></p>
+    </form>
+  </section>
+
+  <!-- панель -->
+  <div class="app" id="appView" hidden>
+    <header class="bar">
+      <div class="bar-brand"><img src="assets/logo.svg" alt="" width="34" height="37"><b>Адмін-панель</b></div>
+      <nav class="tabs" role="tablist">
+        <button class="tab active" data-tab="menu">Меню і ціни</button>
+        <button class="tab" data-tab="reviews">Відгуки <span class="count" id="pendingCount" hidden></span></button>
+        <button class="tab" data-tab="settings">Налаштування</button>
+        <button class="tab" data-tab="security">Пароль</button>
+      </nav>
+      <div class="bar-right">
+        <a class="link" href="./" target="_blank">Відкрити сайт ↗</a>
+        <button class="link" id="logout">Вийти</button>
+      </div>
+    </header>
+
+    <div class="warn" id="defaultPwWarn" hidden>⚠ Ви використовуєте стандартний пароль. Змініть його у вкладці «Пароль», перш ніж публікувати сайт.</div>
+
+    <!-- МЕНЮ -->
+    <main class="pane" id="pane-menu">
+      <div class="pane-head">
+        <div>
+          <h2>Меню і ціни</h2>
+          <p class="hint">Змінюйте назви, ціни, обʼєми. Кнопки ↑ ↓ змінюють порядок, 👁 ховає позицію, якої немає в наявності. Не забудьте натиснути «Зберегти».</p>
+        </div>
+        <div class="pane-actions">
+          <input type="search" id="adminSearch" placeholder="Знайти позицію…">
+          <button class="btn btn-sec" id="addCat">+ Категорія</button>
+          <button class="btn" id="saveMenu">Зберегти меню</button>
+        </div>
+      </div>
+      <div class="price-tool">
+        <b>Масова зміна цін:</b>
+        <select id="bulkCat"></select>
+        <input type="number" id="bulkPct" placeholder="%" step="1" style="width:80px">
+        <button class="btn btn-sec" id="bulkApply">Застосувати</button>
+        <span class="hint">напр. 10 = +10%, −5 = знижка 5%. Ціни округлюються до гривні.</span>
+      </div>
+      <div id="cats"></div>
+      <div class="backup">
+        <button class="btn btn-sec" id="exportMenu">⬇ Завантажити резервну копію</button>
+        <label class="btn btn-sec">⬆ Відновити з файлу<input type="file" id="importMenu" accept="application/json" hidden></label>
+      </div>
+    </main>
+
+    <!-- ВІДГУКИ -->
+    <main class="pane" id="pane-reviews" hidden>
+      <div class="pane-head">
+        <div>
+          <h2>Відгуки</h2>
+          <p class="hint">Приховані відгуки не показуються на сайті. Модерацію можна ввімкнути в «Налаштуваннях».</p>
+        </div>
+        <div class="pane-actions">
+          <select id="revFilter"><option value="all">Усі</option><option value="hidden">Приховані / на перевірці</option><option value="visible">Опубліковані</option></select>
+        </div>
+      </div>
+      <div id="revList" class="rev-list"></div>
+    </main>
+
+    <!-- НАЛАШТУВАННЯ -->
+    <main class="pane" id="pane-settings" hidden>
+      <div class="pane-head">
+        <div><h2>Налаштування сайту</h2><p class="hint">Контакти, домен для QR-коду та тексти на головній.</p></div>
+        <div class="pane-actions"><button class="btn" id="saveSettings">Зберегти налаштування</button></div>
+      </div>
+      <form class="settings" id="settingsForm">
+        <fieldset><legend>Домен і QR-код</legend>
+          <label class="wide">Адреса сайту (домен)
+            <input name="siteUrl" placeholder="наприклад: route66coffee.com.ua">
+            <small>Коли купите домен — впишіть його сюди, і всі QR-коди будуть вести на нього. Поки поле порожнє, QR веде на поточну адресу сайту.</small>
+          </label>
+        </fieldset>
+        <fieldset><legend>Тексти</legend>
+          <label class="wide">Слоган на головній<input name="tagline"></label>
+          <label class="wide">Текст «Про нас»<textarea name="about" rows="3"></textarea></label>
+          <label class="wide">Оголошення вгорі сайту<input name="announcement" placeholder="напр.: −20% на лате до 12:00! (порожньо — не показувати)"></label>
+        </fieldset>
+        <fieldset><legend>Контакти</legend>
+          <label>Адреса<input name="address"></label>
+          <label>Посилання на карту<input name="mapUrl" placeholder="https://maps.app.goo.gl/…"></label>
+          <label>Телефон<input name="phone" placeholder="+380 …"></label>
+          <label>Години роботи<input name="hours"></label>
+          <label>Instagram<input name="instagram" placeholder="@route66coffee або посилання"></label>
+          <label>Telegram<input name="telegram" placeholder="@канал або посилання"></label>
+          <label>Facebook<input name="facebook" placeholder="посилання або імʼя сторінки"></label>
+        </fieldset>
+        <fieldset><legend>Відгуки</legend>
+          <label class="check"><input type="checkbox" name="reviewsModeration"> Перевіряти нові відгуки перед публікацією (премодерація)</label>
+        </fieldset>
+      </form>
+    </main>
+
+    <!-- ПАРОЛЬ -->
+    <main class="pane" id="pane-security" hidden>
+      <div class="pane-head"><div><h2>Зміна пароля</h2></div></div>
+      <form class="settings narrow" id="pwForm">
+        <label class="wide">Поточний пароль<input type="password" name="old" autocomplete="current-password" required></label>
+        <label class="wide">Новий пароль (мін. 6 символів)<input type="password" name="new" autocomplete="new-password" minlength="6" required></label>
+        <label class="wide">Повторіть новий пароль<input type="password" name="new2" autocomplete="new-password" minlength="6" required></label>
+        <button class="btn" type="submit">Змінити пароль</button>
+      </form>
+    </main>
+  </div>
+
+  <div class="toast" id="toast" role="status"></div>
+  <script src="js/admin.js"></script>
+</body>
+</html>

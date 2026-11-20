@@ -1,0 +1,7 @@
+# пароль адміністратора і живі відгуки — не публікуємо
+data/auth.json
+data/reviews.json
+data/*.tmp
+.claude/
+_site/
+node_modules/

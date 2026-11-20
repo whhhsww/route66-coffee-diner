@@ -1,0 +1,10 @@
+# Для PHP-хостингу (Apache): /api/... -> api.php
+Options -Indexes
+RewriteEngine On
+RewriteRule ^api/(.*)$ api.php?r=$1 [QSA,L]
+RewriteRule ^admin$ admin.html [L]
+# Передача заголовка авторизації в PHP
+SetEnvIf Authorization "(.*)" HTTP_AUTHORIZATION=$1
+# Захист даних, якщо папку data/ поклали всередину public/
+RewriteRule ^data/ - [F,L]
+AddDefaultCharset utf-8
