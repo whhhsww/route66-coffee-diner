@@ -1,0 +1,279 @@
+<!doctype html>
+<html lang="uk">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Route 66 Coffee Diner — кава, десерти, хот-доги</title>
+  <meta name="description" content="Route 66 Coffee Diner — американський дайнер: кава, холодні напої, десерти, хот-доги. Меню з цінами, відгуки гостей, QR-код.">
+  <meta name="theme-color" content="#b84a0e">
+  <link rel="icon" href="assets/logo.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Oswald:wght@500;600;700&family=Rubik:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="announce" id="announce" hidden></div>
+
+  <header class="topbar" id="topbar">
+    <a class="brand" href="#top" aria-label="Route 66 Coffee Diner — на головну">
+      <img src="assets/logo.svg" alt="" width="44" height="48">
+      <span class="brand-text"><b>Route 66</b><i>Coffee Diner</i></span>
+    </a>
+    <button class="burger" id="burger" aria-label="Меню навігації" aria-expanded="false"><span></span><span></span><span></span></button>
+    <nav class="nav" id="nav">
+      <a href="#menu">Меню</a>
+      <a href="#about">Про нас</a>
+      <a href="#reviews">Відгуки</a>
+      <a href="#qr">QR-код</a>
+      <a href="#contacts">Контакти</a>
+    </nav>
+  </header>
+
+  <section class="hero" id="top">
+    <div class="hero-stage" id="heroStage" aria-hidden="true"></div>
+    <div class="hero-shade"></div>
+    <a class="now-showing" id="nowShowing" href="#menu" hidden>
+      <span class="ns-k">На екрані</span>
+      <b class="ns-name"></b>
+      <span class="ns-price"></span>
+    </a>
+    <div class="hero-inner">
+      <div class="hero-badge"><span>★</span> Американський дайнер <span>★</span></div>
+      <h1><span class="h-route">Route 66</span><span class="h-script">Coffee Diner</span></h1>
+      <p class="hero-tag" id="heroTag">Американський дайнер, де кава — це подорож</p>
+      <div class="hero-cta">
+        <a class="btn btn-primary" href="#menu">Дивитись меню</a>
+        <a class="btn btn-ghost" href="#reviews">Залишити відгук</a>
+      </div>
+      <div class="hero-meta">
+        <span id="heroRating">★ Відгуки гостей</span>
+        <span id="heroHours"></span>
+      </div>
+    </div>
+    <a class="hero-scroll" href="#menu" aria-label="Гортати до меню"><span></span></a>
+  </section>
+
+  <div class="checker" aria-hidden="true"></div>
+
+  <!-- МЕНЮ -->
+  <section class="section menu" id="menu">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="kicker">Що смачного сьогодні</span>
+        <h2>Меню</h2>
+        <p class="sec-sub">Ціни в гривнях. Меню оновлюється — питайте бариста про новинки сезону.</p>
+      </div>
+      <div class="edit-tools" id="editTools" hidden>
+        <b>Масова зміна цін:</b>
+        <select id="bulkCat"></select>
+        <input type="number" id="bulkPct" placeholder="%" step="1">
+        <button class="btn btn-outline btn-sm" id="bulkApply" type="button">Застосувати</button>
+        <button class="btn btn-primary btn-sm" id="addCat" type="button">+ Нова категорія</button>
+      </div>
+      <div class="menu-tools">
+        <label class="search">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg>
+          <input id="menuSearch" type="search" placeholder="Пошук: лате, вафля, хот-дог…" autocomplete="off">
+        </label>
+      </div>
+      <div class="chips" id="chips" role="tablist" aria-label="Категорії меню"></div>
+      <div id="menuList" class="menu-list"><p class="loading">Завантажуємо меню…</p></div>
+      <p class="empty" id="menuEmpty" hidden>Нічого не знайдено. Спробуйте інший запит.</p>
+    </div>
+  </section>
+
+  <!-- ПРО НАС -->
+  <section class="section about" id="about">
+    <div class="wrap about-grid">
+      <div>
+        <span class="kicker kicker-light">Про нас</span>
+        <h2>Дух великої дороги у кожній чашці</h2>
+        <p id="aboutText"></p>
+        <a class="btn btn-light" href="#contacts">Як нас знайти</a>
+      </div>
+      <ul class="features">
+        <li><b>☕</b><div><h3>Свіжа кава</h3><p>Еспресо, фільтр і авторські лате — від класики до Убе та Сінабону.</p></div></li>
+        <li><b>🌭</b><div><h3>Американська кухня</h3><p>Хот-доги, бейгли, сендвічі та боули — швидко і ситно.</p></div></li>
+        <li><b>🧇</b><div><h3>Десерти та вафлі</h3><p>Баскський чізкейк, тарти, макарон і свіжі вафлі.</p></div></li>
+        <li><b>🛣️</b><div><h3>Атмосфера Route 66</h3><p>Неон, вінтажні вивіски та сувеніри з легендарної траси.</p></div></li>
+      </ul>
+    </div>
+  </section>
+
+  <div class="checker" aria-hidden="true"></div>
+
+  <!-- ВІДГУКИ -->
+  <section class="section reviews" id="reviews">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="kicker">Що кажуть гості</span>
+        <h2>Відгуки</h2>
+      </div>
+      <div class="reviews-grid">
+        <div class="review-summary">
+          <div class="score" id="avgScore">—</div>
+          <div class="stars-big" id="avgStars" aria-hidden="true">★★★★★</div>
+          <p id="avgCount">Ще немає відгуків</p>
+          <form class="review-form" id="reviewForm" novalidate>
+            <h3>Залиште свій відгук</h3>
+            <label>Ваше імʼя
+              <input name="name" maxlength="40" required placeholder="Наприклад, Олена">
+            </label>
+            <fieldset class="rate">
+              <legend>Оцінка</legend>
+              <div class="rate-stars" id="rateStars">
+                <input type="radio" name="rating" id="r5" value="5"><label for="r5" title="Чудово">★</label>
+                <input type="radio" name="rating" id="r4" value="4"><label for="r4" title="Добре">★</label>
+                <input type="radio" name="rating" id="r3" value="3"><label for="r3" title="Нормально">★</label>
+                <input type="radio" name="rating" id="r2" value="2"><label for="r2" title="Погано">★</label>
+                <input type="radio" name="rating" id="r1" value="1"><label for="r1" title="Жахливо">★</label>
+              </div>
+            </fieldset>
+            <label>Відгук
+              <textarea name="text" rows="4" maxlength="600" required placeholder="Що сподобалось? Що порадите іншим гостям?"></textarea>
+            </label>
+            <input class="hp" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
+            <button class="btn btn-primary" type="submit">Надіслати відгук</button>
+            <p class="form-msg" id="reviewMsg" role="status"></p>
+          </form>
+        </div>
+        <div>
+          <div class="review-list" id="reviewList"></div>
+          <button class="btn btn-outline" id="moreReviews" hidden>Показати ще</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- QR -->
+  <section class="section qr" id="qr">
+    <div class="wrap qr-grid">
+      <div>
+        <span class="kicker kicker-light">Скануй і замовляй</span>
+        <h2>QR-код меню</h2>
+        <p>Наведіть камеру телефону — і меню відкриється одразу. Роздрукуйте код для столиків, вітрини або флаєрів.</p>
+        <div class="qr-targets" role="radiogroup" aria-label="Куди веде QR-код">
+          <button class="qchip active" data-target="#menu">Меню</button>
+          <button class="qchip" data-target="#reviews">Відгуки</button>
+          <button class="qchip" data-target="">Головна</button>
+        </div>
+        <p class="qr-link">Посилання: <a id="qrLink" href="#" target="_blank" rel="noopener"></a></p>
+        <div class="qr-actions">
+          <button class="btn btn-light" id="qrDownload">Завантажити PNG</button>
+          <button class="btn btn-ghost" id="qrPrint">Друкувати<span class="d-only"> табличку</span></button>
+          <button class="btn btn-ghost" id="qrShare">Поділитися</button>
+        </div>
+      </div>
+      <div class="qr-card" id="qrCard">
+        <div class="qr-card-top"><img src="assets/logo.svg" alt="" width="34" height="37"><span>Route 66 Coffee Diner</span></div>
+        <canvas id="qrCanvas" width="600" height="600" aria-label="QR-код"></canvas>
+        <div class="qr-card-bottom">Скануй — дивись меню</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- КОНТАКТИ -->
+  <footer class="footer" id="contacts">
+    <div class="wrap foot-grid">
+      <div>
+        <div class="brand brand-foot"><img src="assets/logo.svg" alt="" width="52" height="57"><span class="brand-text"><b>Route 66</b><i>Coffee Diner</i></span></div>
+        <p class="foot-tag" id="footTag"></p>
+      </div>
+      <div>
+        <h3>Контакти</h3>
+        <ul class="contact-list">
+          <li id="cAddressRow"><span>📍</span><a id="cAddress" target="_blank" rel="noopener"></a></li>
+          <li id="cPhoneRow"><span>📞</span><a id="cPhone"></a></li>
+          <li><span>🕗</span><span id="cHours"></span></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Ми в мережі</h3>
+        <div class="socials" id="socials"></div>
+      </div>
+    </div>
+    <div class="foot-bottom">© <span id="year"></span> Route 66 Coffee Diner. Ласкаво просимо на дорогу! <button class="owner-link" id="ownerLogin" type="button">🔒 Вхід для власника</button></div>
+  </footer>
+
+  <!-- ===== Режим власника ===== -->
+  <div class="modal" id="loginModal" hidden>
+    <form class="modal-card login-card" id="loginForm">
+      <button class="modal-x" type="button" data-close aria-label="Закрити">✕</button>
+      <img src="assets/logo.svg" alt="" width="56" height="61">
+      <h3>Вхід для власника</h3>
+      <p id="loginHint">Після входу можна змінювати меню, ціни, тексти та відгуки прямо на сайті.</p>
+      <input type="password" id="ownerPw" placeholder="Пароль" autocomplete="current-password">
+      <div class="gh-login" id="ghLogin" hidden>
+        <p>Ця версія сайту зберігає зміни прямо на GitHub. Увійдіть зі своїм ключем доступу GitHub.</p>
+        <input type="password" id="ghToken" placeholder="Ключ GitHub (github_pat_…)" autocomplete="off" spellcheck="false">
+        <label class="gh-remember"><input type="checkbox" id="ghRemember" checked> Запамʼятати на цьому пристрої</label>
+        <details>
+          <summary>Як отримати ключ? (1 раз, 2 хвилини)</summary>
+          <ol>
+            <li>Увійдіть на github.com у свій акаунт.</li>
+            <li>Відкрийте <a href="https://github.com/settings/personal-access-tokens/new" target="_blank" rel="noopener">Settings → Developer settings → Fine-grained tokens → Generate new token</a>.</li>
+            <li>Token name: <b>route66</b>, Expiration: 1 рік.</li>
+            <li>Repository access: <b>Only select repositories</b> → <b id="ghRepoName">route66-coffee-diner</b>.</li>
+            <li>Permissions → Repository → <b>Contents: Read and write</b>.</li>
+            <li>Натисніть <b>Generate token</b>, скопіюйте ключ і вставте сюди.</li>
+          </ol>
+        </details>
+      </div>
+      <button class="btn btn-primary" type="submit">Увійти</button>
+      <p class="form-msg err" id="loginErr" role="alert"></p>
+    </form>
+  </div>
+
+  <div class="edit-bar" id="editBar" hidden>
+    <div class="eb-info"><b>✏️ Режим редагування</b><span id="ebStatus">Натисніть на будь-яку назву чи ціну, щоб змінити її</span></div>
+    <div class="eb-actions">
+      <button class="eb-btn" id="ebSettings" type="button">⚙ Контакти<span class="d-only"> і тексти</span></button>
+      <button class="eb-btn" id="ebPassword" type="button">🔑 Пароль</button>
+      <button class="eb-btn eb-save" id="ebSave" type="button" disabled>Зберегти<span class="d-only"> зміни</span></button>
+      <button class="eb-btn" id="ebExit" type="button">Вийти</button>
+    </div>
+  </div>
+
+  <div class="modal" id="settingsModal" hidden>
+    <form class="modal-card settings-card" id="settingsForm">
+      <button class="modal-x" type="button" data-close aria-label="Закрити">✕</button>
+      <h3>Контакти і тексти</h3>
+      <div class="sf-grid">
+        <label class="wide">Домен сайту (для QR-коду)<input name="siteUrl" placeholder="наприклад: route66coffee.com.ua"><small>Порожньо — QR веде на поточну адресу сайту.</small></label>
+        <label class="wide">Слоган на головній<input name="tagline"></label>
+        <label class="wide">Текст «Про нас»<textarea name="about" rows="3"></textarea></label>
+        <label class="wide">Оголошення вгорі сайту<input name="announcement" placeholder="напр.: −20% на лате до 12:00 (порожньо — не показувати)"></label>
+        <label>Адреса<input name="address"></label>
+        <label>Посилання на карту<input name="mapUrl" placeholder="https://maps.app.goo.gl/…"></label>
+        <label>Телефон<input name="phone" placeholder="+380 …"></label>
+        <label>Години роботи<input name="hours"></label>
+        <label>Instagram<input name="instagram" placeholder="@назва або посилання"></label>
+        <label>Telegram<input name="telegram" placeholder="@канал або посилання"></label>
+        <label class="wide">Facebook<input name="facebook" placeholder="посилання або назва сторінки"></label>
+        <label class="wide check"><input type="checkbox" name="reviewsModeration"> Перевіряти нові відгуки перед публікацією</label>
+      </div>
+      <button class="btn btn-primary" type="submit">Зберегти</button>
+    </form>
+  </div>
+
+  <div class="modal" id="pwModal" hidden>
+    <form class="modal-card login-card" id="pwForm">
+      <button class="modal-x" type="button" data-close aria-label="Закрити">✕</button>
+      <h3>Зміна пароля</h3>
+      <input type="password" name="old" placeholder="Поточний пароль" autocomplete="current-password" required>
+      <input type="password" name="new" placeholder="Новий пароль (мін. 6 символів)" autocomplete="new-password" minlength="6" required>
+      <input type="password" name="new2" placeholder="Повторіть новий пароль" autocomplete="new-password" minlength="6" required>
+      <button class="btn btn-primary" type="submit">Змінити пароль</button>
+    </form>
+  </div>
+
+  <a class="to-menu" id="toMenu" href="#menu" aria-label="До меню">☰ Меню</a>
+  <div class="toast" id="toast" role="status"></div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcode-generator/1.4.4/qrcode.min.js"></script>
+
+  <script src="js/hero-panels.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

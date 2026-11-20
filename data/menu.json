@@ -1,0 +1,1983 @@
+{
+  "currency": "₴",
+  "categories": [
+    {
+      "id": "coffee",
+      "name": "Кава",
+      "icon": "☕",
+      "description": "Свіжообсмажене зерно, класика та авторські лате",
+      "items": [
+        {
+          "name": "Еспресо",
+          "variants": [
+            {
+              "label": "",
+              "price": 60
+            }
+          ]
+        },
+        {
+          "name": "Допіо",
+          "variants": [
+            {
+              "label": "",
+              "price": 74
+            }
+          ]
+        },
+        {
+          "name": "Американо",
+          "variants": [
+            {
+              "label": "180 мл",
+              "price": 65
+            },
+            {
+              "label": "подвійний",
+              "price": 79
+            }
+          ],
+          "image": "assets/dishes/americano.jpg"
+        },
+        {
+          "name": "Капучино",
+          "variants": [
+            {
+              "label": "180 мл",
+              "price": 78
+            },
+            {
+              "label": "250 мл",
+              "price": 89
+            },
+            {
+              "label": "400 мл, дабл",
+              "price": 112
+            },
+            {
+              "label": "500 мл, дабл",
+              "price": 124
+            }
+          ],
+          "image": "assets/dishes/cappuccino.jpg"
+        },
+        {
+          "name": "Лате",
+          "variants": [
+            {
+              "label": "250 мл",
+              "price": 89
+            },
+            {
+              "label": "350 мл",
+              "price": 104
+            },
+            {
+              "label": "500 мл, дабл",
+              "price": 124
+            }
+          ],
+          "image": "assets/dishes/latte.jpg"
+        },
+        {
+          "name": "Флет Уайт",
+          "variants": [
+            {
+              "label": "250 мл",
+              "price": 109
+            }
+          ]
+        },
+        {
+          "name": "Фільтр-кава",
+          "variants": [
+            {
+              "label": "180 мл",
+              "price": 79
+            },
+            {
+              "label": "250 мл",
+              "price": 89
+            },
+            {
+              "label": "350 мл",
+              "price": 105
+            }
+          ]
+        },
+        {
+          "name": "Фісташковий лате",
+          "variants": [
+            {
+              "label": "250 мл",
+              "price": 119
+            },
+            {
+              "label": "400 мл",
+              "price": 149
+            }
+          ]
+        },
+        {
+          "name": "Лате Убе",
+          "badge": "хіт",
+          "variants": [
+            {
+              "label": "400 мл",
+              "price": 159
+            }
+          ]
+        },
+        {
+          "name": "Лате солона карамель",
+          "variants": [
+            {
+              "label": "400 мл",
+              "price": 145
+            }
+          ]
+        },
+        {
+          "name": "Сінабон лате",
+          "variants": [
+            {
+              "label": "400 мл",
+              "price": 165
+            }
+          ]
+        },
+        {
+          "name": "Гарбузовий лате",
+          "badge": "сезон",
+          "variants": [
+            {
+              "label": "",
+              "price": 145
+            }
+          ]
+        },
+        {
+          "name": "Нутелловий лате",
+          "variants": [
+            {
+              "label": "",
+              "price": 145
+            }
+          ]
+        },
+        {
+          "name": "Рожевий лате",
+          "variants": [
+            {
+              "label": "",
+              "price": 139
+            }
+          ],
+          "image": "assets/dishes/rose-latte.jpg"
+        },
+        {
+          "name": "Капуоранж",
+          "variants": [
+            {
+              "label": "",
+              "price": 149
+            }
+          ]
+        },
+        {
+          "name": "Раф кава",
+          "variants": [
+            {
+              "label": "",
+              "price": null
+            }
+          ]
+        },
+        {
+          "name": "Матча лате",
+          "variants": [
+            {
+              "label": "",
+              "price": null
+            }
+          ]
+        },
+        {
+          "name": "Зимовий джміль",
+          "badge": "сезон",
+          "variants": [
+            {
+              "label": "",
+              "price": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cold",
+      "name": "Холодне меню",
+      "icon": "🧊",
+      "description": "Айс-кава, лимонади, bubble tea та авторські коктейлі",
+      "items": [
+        {
+          "name": "Джміль",
+          "variants": [
+            {
+              "label": "",
+              "price": 145
+            }
+          ],
+          "image": "assets/dishes/bumblebee.jpg"
+        },
+        {
+          "name": "Айс лате",
+          "variants": [
+            {
+              "label": "",
+              "price": 119
+            }
+          ],
+          "image": "assets/dishes/ice-latte.jpg"
+        },
+        {
+          "name": "Айс фісташковий лате",
+          "variants": [
+            {
+              "label": "",
+              "price": 165
+            }
+          ]
+        },
+        {
+          "name": "Еспресо-тонік",
+          "variants": [
+            {
+              "label": "",
+              "price": 145
+            }
+          ],
+          "image": "assets/dishes/espresso-tonic.jpg"
+        },
+        {
+          "name": "Coco cream espresso",
+          "variants": [
+            {
+              "label": "",
+              "price": 149
+            }
+          ]
+        },
+        {
+          "name": "Мʼятний айс какао",
+          "variants": [
+            {
+              "label": "",
+              "price": 125
+            }
+          ]
+        },
+        {
+          "name": "Айс матча",
+          "variants": [
+            {
+              "label": "",
+              "price": 160
+            }
+          ]
+        },
+        {
+          "name": "Кокосова матча",
+          "variants": [
+            {
+              "label": "",
+              "price": 165
+            }
+          ]
+        },
+        {
+          "name": "Матча оранж",
+          "variants": [
+            {
+              "label": "",
+              "price": 175
+            }
+          ],
+          "image": "assets/dishes/matcha-orange.jpg"
+        },
+        {
+          "name": "Мохіто",
+          "desc": "безалкогольний",
+          "variants": [
+            {
+              "label": "",
+              "price": 139
+            }
+          ],
+          "image": "assets/dishes/mojito.jpg"
+        },
+        {
+          "name": "Маракуйя краш",
+          "variants": [
+            {
+              "label": "",
+              "price": 145
+            }
+          ]
+        },
+        {
+          "name": "Блакитна безодня",
+          "variants": [
+            {
+              "label": "",
+              "price": 129
+            }
+          ]
+        },
+        {
+          "name": "Молочний коктейль",
+          "variants": [
+            {
+              "label": "",
+              "price": 142
+            }
+          ],
+          "image": "assets/dishes/milkshake.jpg"
+        },
+        {
+          "name": "Кавунний апероль",
+          "desc": "безалкогольний",
+          "variants": [
+            {
+              "label": "",
+              "price": 139
+            }
+          ]
+        },
+        {
+          "name": "Ягідний апероль",
+          "desc": "безалкогольний",
+          "variants": [
+            {
+              "label": "",
+              "price": 149
+            }
+          ]
+        },
+        {
+          "name": "Колумбія",
+          "variants": [
+            {
+              "label": "",
+              "price": 169
+            }
+          ],
+          "image": "assets/dishes/columbia.jpg"
+        },
+        {
+          "name": "Літній вайб",
+          "variants": [
+            {
+              "label": "",
+              "price": 104
+            }
+          ]
+        },
+        {
+          "name": "Народжений в Україні",
+          "badge": "хіт",
+          "variants": [
+            {
+              "label": "",
+              "price": 107
+            }
+          ]
+        },
+        {
+          "name": "Безумство ченця",
+          "variants": [
+            {
+              "label": "",
+              "price": 135
+            }
+          ]
+        },
+        {
+          "name": "Секс на пляжі",
+          "desc": "безалкогольний",
+          "variants": [
+            {
+              "label": "",
+              "price": 162
+            }
+          ],
+          "image": "assets/dishes/sex-beach.jpg"
+        },
+        {
+          "name": "Чорний кокос",
+          "variants": [
+            {
+              "label": "",
+              "price": 165
+            }
+          ],
+          "image": "assets/dishes/black-coco.jpg"
+        },
+        {
+          "name": "Лимонад класичний",
+          "variants": [
+            {
+              "label": "",
+              "price": 139
+            }
+          ]
+        },
+        {
+          "name": "Лимонад тропік",
+          "variants": [
+            {
+              "label": "",
+              "price": 145
+            }
+          ]
+        },
+        {
+          "name": "Лимонад ягідний",
+          "variants": [
+            {
+              "label": "",
+              "price": 147
+            }
+          ]
+        },
+        {
+          "name": "Лимонад цитрус",
+          "variants": [
+            {
+              "label": "",
+              "price": 135
+            }
+          ]
+        },
+        {
+          "name": "Bubble tea coffee",
+          "variants": [
+            {
+              "label": "",
+              "price": 165
+            }
+          ]
+        },
+        {
+          "name": "Bubble tropic",
+          "variants": [
+            {
+              "label": "",
+              "price": 169
+            }
+          ]
+        },
+        {
+          "name": "Bubble matcha",
+          "variants": [
+            {
+              "label": "",
+              "price": 165
+            }
+          ]
+        },
+        {
+          "name": "Bubble taro",
+          "variants": [
+            {
+              "label": "",
+              "price": 169
+            }
+          ]
+        },
+        {
+          "name": "Bubble тайгер",
+          "variants": [
+            {
+              "label": "",
+              "price": 155
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cocoa",
+      "name": "Какао та шоколад",
+      "icon": "🍫",
+      "description": "Гарячий шоколад, какао і дитяча пінка",
+      "items": [
+        {
+          "name": "Гарячий шоколад",
+          "variants": [
+            {
+              "label": "250 мл",
+              "price": 98
+            },
+            {
+              "label": "400 мл",
+              "price": 124
+            }
+          ]
+        },
+        {
+          "name": "Білий какао",
+          "variants": [
+            {
+              "label": "250 мл",
+              "price": 97
+            },
+            {
+              "label": "350 мл",
+              "price": 109
+            }
+          ]
+        },
+        {
+          "name": "Гіркий какао",
+          "variants": [
+            {
+              "label": "250 мл",
+              "price": 85
+            },
+            {
+              "label": "350 мл",
+              "price": 99
+            },
+            {
+              "label": "500 мл",
+              "price": 119
+            }
+          ]
+        },
+        {
+          "name": "Солодкий какао",
+          "variants": [
+            {
+              "label": "250 мл",
+              "price": 85
+            },
+            {
+              "label": "350 мл",
+              "price": 99
+            },
+            {
+              "label": "500 мл",
+              "price": 119
+            }
+          ]
+        },
+        {
+          "name": "Дитяча пінка",
+          "variants": [
+            {
+              "label": "180 мл",
+              "price": 32
+            },
+            {
+              "label": "250 мл",
+              "price": 37
+            },
+            {
+              "label": "350 мл",
+              "price": 44
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tea",
+      "name": "Чай",
+      "icon": "🫖",
+      "description": "Заварні, авторські та гарячі bubble-напої",
+      "items": [
+        {
+          "name": "Чай заварний",
+          "variants": [
+            {
+              "label": "",
+              "price": 79
+            }
+          ]
+        },
+        {
+          "name": "Чай заварний у чайнику",
+          "variants": [
+            {
+              "label": "",
+              "price": 115
+            }
+          ]
+        },
+        {
+          "name": "Авторський чай",
+          "variants": [
+            {
+              "label": "",
+              "price": 125
+            }
+          ]
+        },
+        {
+          "name": "Чай Meal Time",
+          "desc": "ягоди годжі з лимоном",
+          "variants": [
+            {
+              "label": "",
+              "price": 105
+            }
+          ]
+        },
+        {
+          "name": "Гречаний чай",
+          "variants": [
+            {
+              "label": "400 мл",
+              "price": 89
+            }
+          ]
+        },
+        {
+          "name": "Пуер",
+          "variants": [
+            {
+              "label": "400 мл",
+              "price": 89
+            }
+          ]
+        },
+        {
+          "name": "Масала чай",
+          "variants": [
+            {
+              "label": "250 мл",
+              "price": 105
+            },
+            {
+              "label": "400 мл",
+              "price": 125
+            }
+          ]
+        },
+        {
+          "name": "Мандариновий чай",
+          "variants": [
+            {
+              "label": "400 мл",
+              "price": 165
+            }
+          ]
+        },
+        {
+          "name": "Гранатово-розмариновий чай",
+          "variants": [
+            {
+              "label": "",
+              "price": 169
+            }
+          ]
+        },
+        {
+          "name": "Пунш грушевий",
+          "variants": [
+            {
+              "label": "",
+              "price": 179
+            }
+          ]
+        },
+        {
+          "name": "Hot Bubble tea",
+          "variants": [
+            {
+              "label": "",
+              "price": 175
+            }
+          ]
+        },
+        {
+          "name": "Вершковий мокко bubble",
+          "variants": [
+            {
+              "label": "",
+              "price": 185
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mulled",
+      "name": "Глінтвейн",
+      "icon": "🍷",
+      "description": "Зігріваючі напої на зиму",
+      "items": [
+        {
+          "name": "Глінтвейн",
+          "variants": [
+            {
+              "label": "250 мл",
+              "price": 115
+            },
+            {
+              "label": "400 мл",
+              "price": 145
+            }
+          ]
+        },
+        {
+          "name": "Глінтвейн VIP",
+          "variants": [
+            {
+              "label": "250 мл, б/а",
+              "price": 125
+            },
+            {
+              "label": "400 мл",
+              "price": 165
+            }
+          ]
+        },
+        {
+          "name": "Глінтвейн на соку",
+          "desc": "безалкогольний",
+          "variants": [
+            {
+              "label": "250 мл",
+              "price": 99
+            },
+            {
+              "label": "400 мл",
+              "price": 129
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "food",
+      "name": "Їжа",
+      "icon": "🌭",
+      "description": "Американська класика: хот-доги, сендвічі, боули",
+      "items": [
+        {
+          "name": "Хот-дог американський",
+          "badge": "хіт",
+          "variants": [
+            {
+              "label": "",
+              "price": 155
+            }
+          ]
+        },
+        {
+          "name": "Пануццо",
+          "variants": [
+            {
+              "label": "",
+              "price": 172
+            }
+          ],
+          "image": "assets/dishes/panuzzo.jpg"
+        },
+        {
+          "name": "Сендвіч з лососем",
+          "variants": [
+            {
+              "label": "",
+              "price": 165
+            }
+          ],
+          "image": "assets/dishes/sandwich-salmon.jpg"
+        },
+        {
+          "name": "Сендвіч з беконом",
+          "variants": [
+            {
+              "label": "",
+              "price": 155
+            }
+          ],
+          "image": "assets/dishes/sandwich-bacon.jpg"
+        },
+        {
+          "name": "Рол з лососем",
+          "variants": [
+            {
+              "label": "",
+              "price": 189
+            }
+          ],
+          "image": "assets/dishes/roll-salmon.jpg"
+        },
+        {
+          "name": "Бейгл з лососем",
+          "variants": [
+            {
+              "label": "",
+              "price": 167
+            }
+          ],
+          "image": "assets/dishes/bagel.jpg"
+        },
+        {
+          "name": "Онігірі",
+          "variants": [
+            {
+              "label": "",
+              "price": 229
+            }
+          ],
+          "image": "assets/dishes/onigiri.jpg"
+        },
+        {
+          "name": "Салат-боул з куркою",
+          "variants": [
+            {
+              "label": "",
+              "price": 205
+            }
+          ]
+        },
+        {
+          "name": "Салат-боул з рибою",
+          "variants": [
+            {
+              "label": "",
+              "price": 225
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "new",
+      "name": "Новинки: вафлі та випічка",
+      "icon": "🧇",
+      "description": "Бельгійські вафлі, круасани, канеле та попкорн",
+      "items": [
+        {
+          "name": "Вафля класична",
+          "variants": [
+            {
+              "label": "",
+              "price": 105
+            }
+          ]
+        },
+        {
+          "name": "Вафля з джемом",
+          "variants": [
+            {
+              "label": "",
+              "price": 135
+            }
+          ]
+        },
+        {
+          "name": "Вафля з вершками",
+          "variants": [
+            {
+              "label": "",
+              "price": 129
+            }
+          ]
+        },
+        {
+          "name": "Вафля з вершками та джемом",
+          "variants": [
+            {
+              "label": "",
+              "price": 159
+            }
+          ]
+        },
+        {
+          "name": "Вафля з фруктами та джемом",
+          "variants": [
+            {
+              "label": "",
+              "price": 155
+            }
+          ]
+        },
+        {
+          "name": "Вафля з морозивом та джемом",
+          "badge": "новинка",
+          "variants": [
+            {
+              "label": "",
+              "price": 169
+            }
+          ]
+        },
+        {
+          "name": "Круасан",
+          "variants": [
+            {
+              "label": "класичний",
+              "price": 99
+            },
+            {
+              "label": "з начинкою",
+              "price": 129
+            }
+          ],
+          "image": "assets/dishes/croissant.jpg"
+        },
+        {
+          "name": "Пончик",
+          "variants": [
+            {
+              "label": "",
+              "price": 75
+            }
+          ],
+          "image": "assets/dishes/donut.jpg"
+        },
+        {
+          "name": "Канеле",
+          "variants": [
+            {
+              "label": "класичне",
+              "price": 95
+            },
+            {
+              "label": "з начинкою",
+              "price": 105
+            }
+          ],
+          "image": "assets/dishes/canele.jpg"
+        },
+        {
+          "name": "Паштейш",
+          "variants": [
+            {
+              "label": "",
+              "price": 99
+            }
+          ],
+          "image": "assets/dishes/pastel.jpg"
+        },
+        {
+          "name": "Трубочка ягідна",
+          "variants": [
+            {
+              "label": "",
+              "price": 119
+            }
+          ],
+          "image": "assets/dishes/tube-berry.jpg"
+        },
+        {
+          "name": "Фісташковий торт",
+          "variants": [
+            {
+              "label": "",
+              "price": 175
+            }
+          ],
+          "image": "assets/dishes/pistachio-cake.jpg"
+        },
+        {
+          "name": "Наполеон",
+          "variants": [
+            {
+              "label": "",
+              "price": 175
+            }
+          ]
+        },
+        {
+          "name": "Попкорн",
+          "variants": [
+            {
+              "label": "малий",
+              "price": 149
+            },
+            {
+              "label": "великий",
+              "price": 249
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "desserts",
+      "name": "Десерти",
+      "icon": "🍰",
+      "description": "Тарти, чізкейки, макарон, кукіс та еклери",
+      "items": [
+        {
+          "name": "Баскський чізкейк",
+          "badge": "хіт",
+          "variants": [
+            {
+              "label": "",
+              "price": 197
+            }
+          ],
+          "image": "assets/dishes/basque.jpg"
+        },
+        {
+          "name": "Тарт пекан",
+          "variants": [
+            {
+              "label": "",
+              "price": 165
+            }
+          ],
+          "image": "assets/dishes/tart-pecan.jpg"
+        },
+        {
+          "name": "Тарт карамельний",
+          "variants": [
+            {
+              "label": "",
+              "price": 179
+            }
+          ],
+          "image": "assets/dishes/tart-caramel.jpg"
+        },
+        {
+          "name": "Тарт горіховий",
+          "variants": [
+            {
+              "label": "",
+              "price": 145
+            }
+          ],
+          "image": "assets/dishes/tart-nut.jpg"
+        },
+        {
+          "name": "Тарти",
+          "variants": [
+            {
+              "label": "",
+              "price": 119
+            }
+          ],
+          "image": "assets/dishes/tarts.jpg"
+        },
+        {
+          "name": "Кіш з лососем",
+          "variants": [
+            {
+              "label": "",
+              "price": 189
+            }
+          ],
+          "image": "assets/dishes/quiche.jpg"
+        },
+        {
+          "name": "Яблуко (мусовий десерт)",
+          "variants": [
+            {
+              "label": "",
+              "price": 185
+            }
+          ],
+          "image": "assets/dishes/apple.jpg"
+        },
+        {
+          "name": "НЕ Снікерс",
+          "variants": [
+            {
+              "label": "",
+              "price": 159
+            }
+          ],
+          "image": "assets/dishes/not-snickers.jpg"
+        },
+        {
+          "name": "Батончик шоколадний",
+          "variants": [
+            {
+              "label": "",
+              "price": 122
+            }
+          ],
+          "image": "assets/dishes/bar.jpg"
+        },
+        {
+          "name": "Еклер класичний",
+          "variants": [
+            {
+              "label": "",
+              "price": 137
+            }
+          ],
+          "image": "assets/dishes/eclair.jpg"
+        },
+        {
+          "name": "Еклер цитрон",
+          "variants": [
+            {
+              "label": "",
+              "price": 109
+            }
+          ],
+          "image": "assets/dishes/eclair-citron.jpg"
+        },
+        {
+          "name": "Шу з лісовими ягодами",
+          "variants": [
+            {
+              "label": "",
+              "price": 137
+            }
+          ],
+          "image": "assets/dishes/choux.jpg"
+        },
+        {
+          "name": "Чіа-пудинг",
+          "variants": [
+            {
+              "label": "",
+              "price": 205
+            }
+          ],
+          "image": "assets/dishes/chia.jpg"
+        },
+        {
+          "name": "Трайфл",
+          "variants": [
+            {
+              "label": "класичний",
+              "price": 165
+            },
+            {
+              "label": "фісташковий",
+              "price": 179
+            }
+          ],
+          "image": "assets/dishes/trifle.jpg"
+        },
+        {
+          "name": "Макарон",
+          "variants": [
+            {
+              "label": "малий",
+              "price": 85
+            },
+            {
+              "label": "великий",
+              "price": 109
+            }
+          ],
+          "image": "assets/dishes/macaron.jpg"
+        },
+        {
+          "name": "Мотті",
+          "variants": [
+            {
+              "label": "",
+              "price": 135
+            }
+          ]
+        },
+        {
+          "name": "Вупі пай",
+          "variants": [
+            {
+              "label": "",
+              "price": 129
+            }
+          ]
+        },
+        {
+          "name": "Кукіс",
+          "variants": [
+            {
+              "label": "класичний",
+              "price": 115
+            },
+            {
+              "label": "червоний оксамит",
+              "price": 132
+            }
+          ],
+          "image": "assets/dishes/cookie-red.jpg"
+        },
+        {
+          "name": "Кекс шоколадний",
+          "variants": [
+            {
+              "label": "",
+              "price": 119
+            }
+          ],
+          "image": "assets/dishes/cupcake-choco.jpg"
+        },
+        {
+          "name": "Кекс банановий",
+          "variants": [
+            {
+              "label": "",
+              "price": 129
+            }
+          ],
+          "image": "assets/dishes/cupcake-banana.jpg"
+        },
+        {
+          "name": "Кекс на заквасці",
+          "variants": [
+            {
+              "label": "",
+              "price": 129
+            }
+          ]
+        },
+        {
+          "name": "Булка шоколадна",
+          "variants": [
+            {
+              "label": "",
+              "price": 149
+            }
+          ],
+          "image": "assets/dishes/bun-choco.jpg"
+        },
+        {
+          "name": "Барні",
+          "variants": [
+            {
+              "label": "",
+              "price": 135
+            }
+          ]
+        },
+        {
+          "name": "Мурашник",
+          "variants": [
+            {
+              "label": "",
+              "price": 72
+            }
+          ]
+        },
+        {
+          "name": "Горішки зі згущеним молоком",
+          "variants": [
+            {
+              "label": "",
+              "price": 57
+            }
+          ],
+          "image": "assets/dishes/nuts.jpg"
+        },
+        {
+          "name": "Горішки з начинкою",
+          "variants": [
+            {
+              "label": "",
+              "price": 67
+            }
+          ]
+        },
+        {
+          "name": "Трубочки зі згущеним молоком",
+          "variants": [
+            {
+              "label": "",
+              "price": 119
+            }
+          ],
+          "image": "assets/dishes/tubes.jpg"
+        },
+        {
+          "name": "Трубочка",
+          "variants": [
+            {
+              "label": "",
+              "price": 99
+            }
+          ]
+        },
+        {
+          "name": "Вафельний торт",
+          "variants": [
+            {
+              "label": "",
+              "price": 99
+            }
+          ],
+          "image": "assets/dishes/wafer-cake.jpg"
+        },
+        {
+          "name": "Пряник-серце",
+          "variants": [
+            {
+              "label": "",
+              "price": 75
+            }
+          ],
+          "image": "assets/dishes/gingerbread.jpg"
+        },
+        {
+          "name": "Десерт-кейкпопс",
+          "variants": [
+            {
+              "label": "",
+              "price": 205
+            }
+          ]
+        },
+        {
+          "name": "Банан у кокосі",
+          "variants": [
+            {
+              "label": "",
+              "price": 215
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "drinks",
+      "name": "Напої",
+      "icon": "🥤",
+      "description": "Газовані напої, соки, вода та комбуча",
+      "items": [
+        {
+          "name": "Вода без газу",
+          "variants": [
+            {
+              "label": "",
+              "price": 46
+            }
+          ]
+        },
+        {
+          "name": "Coca-Cola (скло)",
+          "variants": [
+            {
+              "label": "",
+              "price": 69
+            }
+          ]
+        },
+        {
+          "name": "Schweppes (скло)",
+          "variants": [
+            {
+              "label": "",
+              "price": 69
+            }
+          ]
+        },
+        {
+          "name": "Coca-Cola / Fanta / Sprite",
+          "variants": [
+            {
+              "label": "",
+              "price": 65
+            }
+          ]
+        },
+        {
+          "name": "Напої в банці",
+          "variants": [
+            {
+              "label": "",
+              "price": 65
+            }
+          ]
+        },
+        {
+          "name": "Red Bull",
+          "variants": [
+            {
+              "label": "",
+              "price": 105
+            }
+          ]
+        },
+        {
+          "name": "Fuze Tea",
+          "variants": [
+            {
+              "label": "",
+              "price": 65
+            }
+          ]
+        },
+        {
+          "name": "Cappy",
+          "variants": [
+            {
+              "label": "",
+              "price": 65
+            }
+          ]
+        },
+        {
+          "name": "Capri-Sun",
+          "variants": [
+            {
+              "label": "",
+              "price": 39
+            }
+          ]
+        },
+        {
+          "name": "Jaffa",
+          "variants": [
+            {
+              "label": "",
+              "price": 49
+            }
+          ]
+        },
+        {
+          "name": "Комбуча",
+          "variants": [
+            {
+              "label": "",
+              "price": 105
+            }
+          ]
+        },
+        {
+          "name": "Восток",
+          "variants": [
+            {
+              "label": "",
+              "price": 139
+            }
+          ]
+        },
+        {
+          "name": "Шепіт",
+          "variants": [
+            {
+              "label": "",
+              "price": 99
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "snacks",
+      "name": "Солодощі та снеки",
+      "icon": "🍬",
+      "description": "Батончики, Kinder, жуйки та протеїн",
+      "items": [
+        {
+          "name": "Snickers / Twix / Mars",
+          "variants": [
+            {
+              "label": "",
+              "price": 55
+            }
+          ]
+        },
+        {
+          "name": "Bounty",
+          "variants": [
+            {
+              "label": "",
+              "price": 58
+            }
+          ]
+        },
+        {
+          "name": "KitKat",
+          "variants": [
+            {
+              "label": "",
+              "price": 58
+            }
+          ]
+        },
+        {
+          "name": "Milka Oreo",
+          "variants": [
+            {
+              "label": "",
+              "price": 55
+            }
+          ]
+        },
+        {
+          "name": "Kinder Bueno",
+          "variants": [
+            {
+              "label": "",
+              "price": 68
+            }
+          ]
+        },
+        {
+          "name": "Kinder Chocolate",
+          "variants": [
+            {
+              "label": "",
+              "price": 75
+            }
+          ]
+        },
+        {
+          "name": "Kinder Country",
+          "variants": [
+            {
+              "label": "",
+              "price": 59
+            }
+          ]
+        },
+        {
+          "name": "Kinder Молочний ломтик",
+          "variants": [
+            {
+              "label": "",
+              "price": 57
+            }
+          ]
+        },
+        {
+          "name": "Kinder Бегемотики",
+          "variants": [
+            {
+              "label": "",
+              "price": 57
+            }
+          ]
+        },
+        {
+          "name": "Kinder Сюрприз",
+          "variants": [
+            {
+              "label": "",
+              "price": 99
+            }
+          ]
+        },
+        {
+          "name": "Kinder Joy",
+          "variants": [
+            {
+              "label": "",
+              "price": 105
+            }
+          ]
+        },
+        {
+          "name": "Яйце-сюрприз з іграшкою",
+          "variants": [
+            {
+              "label": "",
+              "price": 135
+            }
+          ]
+        },
+        {
+          "name": "Яйце-сюрприз Stranger Things",
+          "variants": [
+            {
+              "label": "",
+              "price": 145
+            }
+          ]
+        },
+        {
+          "name": "Лабубу",
+          "variants": [
+            {
+              "label": "",
+              "price": 125
+            }
+          ]
+        },
+        {
+          "name": "Go On Energy",
+          "variants": [
+            {
+              "label": "",
+              "price": 54
+            }
+          ]
+        },
+        {
+          "name": "Мікс горіхів",
+          "variants": [
+            {
+              "label": "",
+              "price": 105
+            }
+          ]
+        },
+        {
+          "name": "Протеїнове печиво",
+          "variants": [
+            {
+              "label": "",
+              "price": 87
+            }
+          ]
+        },
+        {
+          "name": "Мармелад «Око»",
+          "variants": [
+            {
+              "label": "",
+              "price": 50
+            }
+          ]
+        },
+        {
+          "name": "Льодяник",
+          "variants": [
+            {
+              "label": "",
+              "price": 75
+            }
+          ]
+        },
+        {
+          "name": "Фігурна цукерка",
+          "variants": [
+            {
+              "label": "мала",
+              "price": 89
+            },
+            {
+              "label": "велика",
+              "price": 139
+            }
+          ]
+        },
+        {
+          "name": "Orbit",
+          "variants": [
+            {
+              "label": "",
+              "price": 39
+            }
+          ]
+        },
+        {
+          "name": "Протеїновий батончик 33%",
+          "variants": [
+            {
+              "label": "",
+              "price": 89
+            }
+          ]
+        },
+        {
+          "name": "Go On Protein",
+          "variants": [
+            {
+              "label": "",
+              "price": 65
+            }
+          ]
+        },
+        {
+          "name": "Протеїновий Dubai bar",
+          "variants": [
+            {
+              "label": "",
+              "price": 115
+            }
+          ]
+        },
+        {
+          "name": "FitWin Crunch",
+          "variants": [
+            {
+              "label": "",
+              "price": 105
+            }
+          ]
+        },
+        {
+          "name": "Space Bite",
+          "variants": [
+            {
+              "label": "",
+              "price": 105
+            }
+          ]
+        },
+        {
+          "name": "Space протеїновий",
+          "variants": [
+            {
+              "label": "матча / фісташка",
+              "price": 135
+            },
+            {
+              "label": "інші смаки",
+              "price": 115
+            }
+          ]
+        },
+        {
+          "name": "Space шоколад",
+          "variants": [
+            {
+              "label": "",
+              "price": 145
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "extras",
+      "name": "Добавки",
+      "icon": "➕",
+      "description": "Зробіть напій саме таким, як любите",
+      "items": [
+        {
+          "name": "Сироп",
+          "variants": [
+            {
+              "label": "",
+              "price": 8
+            }
+          ]
+        },
+        {
+          "name": "Збиті вершки",
+          "variants": [
+            {
+              "label": "",
+              "price": 29
+            }
+          ]
+        },
+        {
+          "name": "Вершки",
+          "variants": [
+            {
+              "label": "20 мл",
+              "price": 17
+            }
+          ]
+        },
+        {
+          "name": "Маршмелоу",
+          "variants": [
+            {
+              "label": "",
+              "price": 25
+            }
+          ]
+        },
+        {
+          "name": "Додаткова порція еспресо",
+          "variants": [
+            {
+              "label": "",
+              "price": 17
+            }
+          ]
+        },
+        {
+          "name": "Декаф",
+          "variants": [
+            {
+              "label": "",
+              "price": 10
+            }
+          ]
+        },
+        {
+          "name": "Молоко звичайне",
+          "variants": [
+            {
+              "label": "",
+              "price": 8
+            }
+          ]
+        },
+        {
+          "name": "Молоко безлактозне",
+          "variants": [
+            {
+              "label": "",
+              "price": 10
+            },
+            {
+              "label": "400 мл",
+              "price": 18
+            }
+          ]
+        },
+        {
+          "name": "Молоко соєве",
+          "variants": [
+            {
+              "label": "50 г",
+              "price": 15
+            }
+          ]
+        },
+        {
+          "name": "Alpro",
+          "variants": [
+            {
+              "label": "400 мл",
+              "price": 65
+            }
+          ]
+        },
+        {
+          "name": "Лимон",
+          "variants": [
+            {
+              "label": "",
+              "price": 12
+            }
+          ]
+        },
+        {
+          "name": "Апельсин",
+          "variants": [
+            {
+              "label": "",
+              "price": 12
+            }
+          ]
+        },
+        {
+          "name": "Сицилійський апельсин",
+          "variants": [
+            {
+              "label": "",
+              "price": 19
+            }
+          ]
+        },
+        {
+          "name": "Мед",
+          "variants": [
+            {
+              "label": "",
+              "price": 20
+            }
+          ]
+        },
+        {
+          "name": "Сир",
+          "variants": [
+            {
+              "label": "",
+              "price": 30
+            }
+          ]
+        },
+        {
+          "name": "Склянка з собою",
+          "variants": [
+            {
+              "label": "",
+              "price": 10
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "merch",
+      "name": "Сувеніри Route 66",
+      "icon": "🛣️",
+      "description": "Забери частинку дороги з собою",
+      "items": [
+        {
+          "name": "Чашка «V8 мотор»",
+          "variants": [
+            {
+              "label": "",
+              "price": 680
+            }
+          ]
+        },
+        {
+          "name": "Чашка «Жук-машинка»",
+          "variants": [
+            {
+              "label": "",
+              "price": 650
+            }
+          ]
+        },
+        {
+          "name": "Чашка залізна Route 66",
+          "variants": [
+            {
+              "label": "",
+              "price": 490
+            }
+          ]
+        },
+        {
+          "name": "Запальничка Route 66",
+          "variants": [
+            {
+              "label": "",
+              "price": 480
+            }
+          ]
+        },
+        {
+          "name": "Маска",
+          "variants": [
+            {
+              "label": "",
+              "price": 319
+            }
+          ]
+        },
+        {
+          "name": "Брелок «Щит»",
+          "variants": [
+            {
+              "label": "",
+              "price": 249
+            }
+          ]
+        },
+        {
+          "name": "Брелок Route 66",
+          "variants": [
+            {
+              "label": "",
+              "price": 149
+            }
+          ]
+        },
+        {
+          "name": "Брелок пластиковий",
+          "variants": [
+            {
+              "label": "",
+              "price": 85
+            }
+          ]
+        },
+        {
+          "name": "Стікери",
+          "variants": [
+            {
+              "label": "",
+              "price": 25
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
